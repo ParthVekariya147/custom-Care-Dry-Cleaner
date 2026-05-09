@@ -4,7 +4,7 @@
 
 The review system should not ask the customer to re-enter personal details. Instead, every QR code or SMS review link contains an invite token such as:
 
-`/reviews/leave?invite=demo-atlanta`
+`/r/demo-atlanta`
 
 That token maps to a known `review_invitations` row, which already references the customer record and service context.
 

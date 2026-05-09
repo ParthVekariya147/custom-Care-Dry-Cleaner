@@ -35,7 +35,7 @@ npm run dev
 
 The review landing page expects a known invite token such as:
 
-`/reviews/leave?invite=demo-atlanta`
+`/r/demo-atlanta`
 
 In production, that token maps to a `review_invitations` row which already knows the customer, email, phone, preferred service, and campaign source. The customer sees a clean review flow, while the database keeps attribution and follow-up data in the background.
 

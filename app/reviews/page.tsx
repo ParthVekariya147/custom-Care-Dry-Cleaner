@@ -63,7 +63,7 @@ export default function ReviewsPage() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/reviews/leave?invite=demo-atlanta" className="button-primary">
+              <Link href="/r/demo-atlanta" className="button-primary">
                 Try Review Funnel
               </Link>
               <Link href="/contact" className="button-secondary">

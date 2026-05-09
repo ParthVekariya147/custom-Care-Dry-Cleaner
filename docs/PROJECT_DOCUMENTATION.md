@@ -88,7 +88,7 @@ This document summarizes the project structure, pages, components, API routes, l
   - `marketing_events` — lightweight event log for analytics and automation.
 
 **Review generation flow (end-to-end)**
-1. Customer scans QR or visits invite link `/reviews/leave?invite=...`.
+1. Customer scans QR or visits invite link `/r/<invite-token>`.
 2. The page (`[app/reviews/leave/page.tsx](app/reviews/leave/page.tsx)`) calls `getReviewInvite()` which reads from Supabase (or returns demo data if not configured).
 3. `ReviewFunnel` UI collects rating, service, and optional keywords.
 4. Client calls `POST /api/reviews/generate` with inputs.
@@ -101,7 +101,7 @@ This document summarizes the project structure, pages, components, API routes, l
 - `lib/review-generator.ts` returns a curated fallback batch of review options if the Gemini client is not configured or model output is unsuitable.
 
 **Testing / smoke checks**
-- Manual QA: start dev server and visit the demo invite: `/reviews/leave?invite=demo-atlanta` — the invite resolves to demo customer data if Supabase is not configured.
+- Manual QA: start dev server and visit the demo invite: `/r/demo-atlanta` — the invite resolves to demo customer data if Supabase is not configured.
 - API test: `POST /api/reviews/generate` with a JSON payload that includes `businessName`, `rating`, `serviceSlug`, and `tone` to verify server behavior.
 
 Example test payload (curl):

@@ -10,7 +10,7 @@ export const brand = {
   primaryPhoneHref: "+16782394100",
   smsPhoneHref: "+16782394100",
   email: "hello@customcaredrycleaner.com",
-  baseReviewLink: "/reviews/leave?invite=demo-atlanta",
+  baseReviewLink: "/r/demo-atlanta",
   bookingLink: "/contact",
   quoteLink: "/contact#quote-request",
   googleReviewUrl:

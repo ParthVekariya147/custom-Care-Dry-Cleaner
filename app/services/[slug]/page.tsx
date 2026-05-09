@@ -68,7 +68,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <Link href="/contact" className="button-primary">
                 Book This Service
               </Link>
-              <Link href="/reviews/leave?invite=demo-atlanta" className="button-secondary">
+              <Link href="/r/demo-atlanta" className="button-secondary">
                 See Review Funnel
               </Link>
             </div>

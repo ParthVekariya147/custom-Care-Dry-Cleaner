@@ -29,7 +29,7 @@ export default function HomePage() {
               <Link href="/contact" className="button-primary">
                 Schedule Pickup
               </Link>
-              <Link href="/reviews/leave?invite=demo-atlanta" className="button-secondary">
+              <Link href="/r/demo-atlanta" className="button-secondary">
                 Leave Review
               </Link>
               <Link href="/contact#quote-request" className="button-secondary">
@@ -83,7 +83,7 @@ export default function HomePage() {
                   <div className="mt-2 text-xl font-extrabold text-slate-950">Text for same-day pickup</div>
                   <div className="mt-2 text-sm leading-6 text-slate-600">Fast mobile conversion path for busy households and professionals.</div>
                 </a>
-                <Link href="/reviews/leave?invite=demo-atlanta" className="surface-panel p-4">
+                <Link href="/r/demo-atlanta" className="surface-panel p-4">
                   <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--spruce)]">QR Review CTA</div>
                   <div className="mt-2 text-xl font-extrabold text-slate-950">Scan-to-review launch page</div>
                   <div className="mt-2 text-sm leading-6 text-slate-600">No extra data entry because the customer profile is already mapped to the invite.</div>

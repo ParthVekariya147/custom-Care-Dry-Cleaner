@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 
-const REVIEW_PATH = "/reviews/leave?invite=demo-atlanta";
+const REVIEW_PATH = "/r/demo-atlanta";
 
 export default function QRCodePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
