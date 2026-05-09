@@ -3,27 +3,37 @@
 import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 
-const reviewUrl = "http://localhost:3000/reviews/leave?invite=demo-atlanta";
+const REVIEW_PATH = "/reviews/leave?invite=demo-atlanta";
 
 export default function QRCodePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [downloadStatus, setDownloadStatus] = useState<"idle" | "downloading" | "success" | "error">("idle");
+  const [reviewUrl, setReviewUrl] = useState<string>("");
 
   useEffect(() => {
-    // Generate QR code on component mount
-    if (canvasRef.current) {
-      void QRCode.toCanvas(canvasRef.current, reviewUrl, {
-        errorCorrectionLevel: "H",
-        margin: 1,
-        color: {
-          dark: "#0f766e",
-          light: "#ffffff",
-        },
-      }).catch((error) => {
-        console.error("Error generating QR code:", error);
-      });
-    }
+    const envSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+    const origin = envSiteUrl && envSiteUrl.startsWith("http")
+      ? envSiteUrl
+      : window.location.origin;
+    setReviewUrl(new URL(REVIEW_PATH, origin).toString());
   }, []);
+
+  useEffect(() => {
+    if (!reviewUrl || !canvasRef.current) {
+      return;
+    }
+
+    void QRCode.toCanvas(canvasRef.current, reviewUrl, {
+      errorCorrectionLevel: "H",
+      margin: 1,
+      color: {
+        dark: "#0f766e",
+        light: "#ffffff",
+      },
+    }).catch((error) => {
+      console.error("Error generating QR code:", error);
+    });
+  }, [reviewUrl]);
 
   const handleDownloadQR = async () => {
     try {
@@ -104,7 +114,7 @@ export default function QRCodePage() {
                 Review URL
               </div>
               <div className="text-sm font-mono text-slate-700">
-                {reviewUrl}
+                {reviewUrl || "Loading..."}
               </div>
             </div>
 
