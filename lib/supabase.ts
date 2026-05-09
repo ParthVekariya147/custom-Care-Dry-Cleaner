@@ -21,11 +21,20 @@ const demoInvite: ReviewInvite = {
 
 type JsonRecord = Record<string, unknown>;
 
+function isValidHttpUrl(value: string) {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === "http:" || parsed.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 function getSupabaseAdmin() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  if (!url || !key) {
+  if (!url || !key || !isValidHttpUrl(url)) {
     return null;
   }
 
@@ -40,7 +49,8 @@ function getSupabaseAdmin() {
 export function isSupabaseConfigured() {
   return Boolean(
     process.env.NEXT_PUBLIC_SUPABASE_URL &&
-      process.env.SUPABASE_SERVICE_ROLE_KEY,
+      process.env.SUPABASE_SERVICE_ROLE_KEY &&
+      isValidHttpUrl(process.env.NEXT_PUBLIC_SUPABASE_URL),
   );
 }
 
