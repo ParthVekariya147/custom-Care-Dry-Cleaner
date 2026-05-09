@@ -12,9 +12,9 @@ export default function QRCodePage() {
 
   useEffect(() => {
     const envSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-    const origin = envSiteUrl && envSiteUrl.startsWith("http")
-      ? envSiteUrl
-      : window.location.origin;
+    const hasValidEnvUrl = Boolean(envSiteUrl && envSiteUrl.startsWith("http"));
+    const isLocalEnvUrl = Boolean(envSiteUrl && /(localhost|127\.0\.0\.1)/i.test(envSiteUrl));
+    const origin = hasValidEnvUrl && !isLocalEnvUrl ? envSiteUrl! : window.location.origin;
     setReviewUrl(new URL(REVIEW_PATH, origin).toString());
   }, []);
 
