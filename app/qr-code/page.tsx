@@ -114,7 +114,18 @@ export default function QRCodePage() {
                 Review URL
               </div>
               <div className="text-sm font-mono text-slate-700">
-                {reviewUrl || "Loading..."}
+                {reviewUrl ? (
+                  <a
+                    href={reviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-700 hover:underline break-all"
+                  >
+                    {reviewUrl}
+                  </a>
+                ) : (
+                  "Loading..."
+                )}
               </div>
             </div>
 

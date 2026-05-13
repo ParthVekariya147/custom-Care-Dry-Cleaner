@@ -367,7 +367,7 @@ export function ReviewFunnel({ businessName, publicReviewUrl, invite }: Props) {
               Review invitation
             </div>
             <div className="mt-0.5 text-xl font-extrabold text-slate-950">
-              Hi {invite.customer.firstName}, share your experience.
+              Hi there, share your experience.
             </div>
             <div className="mt-1 text-xs leading-5 text-slate-600">
               Step 1: Select service • Step 2: Rate • Step 3: Generate review
@@ -464,7 +464,7 @@ export function ReviewFunnel({ businessName, publicReviewUrl, invite }: Props) {
 
             {rating !== null && rating >= 4 && (
               <div className="mt-3 rounded-lg bg-green-50 p-2.5 text-xs text-green-800">
-                ✓ Perfect! We'll generate a {ratingLabels[rating]?.toLowerCase()} review for <strong>{selectedService}</strong>.
+                Perfect! We'll generate a {ratingLabels[rating]?.toLowerCase()} review for <strong>{selectedService}</strong>.
               </div>
             )}
 

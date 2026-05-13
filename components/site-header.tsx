@@ -22,9 +22,9 @@ export function SiteHeader() {
               <div className="grid h-9 sm:h-10 md:h-11 w-9 sm:w-10 md:w-11 flex-shrink-0 place-items-center rounded-xl sm:rounded-2xl bg-[var(--foreground)] text-xs sm:text-sm font-extrabold text-white">
                 CC
               </div>
-              <div className="hidden sm:block min-w-0">
+              <div className="min-w-0">
                 <div className="heading-display text-sm sm:text-base md:text-lg font-semibold leading-tight truncate">{brand.name}</div>
-                <div className="text-xs uppercase tracking-[0.18em] text-slate-500 leading-tight truncate">
+                <div className="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-slate-500 leading-tight truncate">
                   {brand.city} Dry Cleaner
                 </div>
               </div>
